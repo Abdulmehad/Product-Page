@@ -164,7 +164,8 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form method="post" action="#" name="submit-to-google-sheet" class="fields">
+							<!-- <form method="post" action="#" name="submit-to-google-sheet" class="fields"> -->
+								<form class="forms" action="https://getform.io/f/bqonelrb" method="POST">
 								<div class="field">
 									<label for="name">Name</label>
 									<input type="text" name="Name" id="name" required />
@@ -226,24 +227,18 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			
-<script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyjSkfc1UV0-3JfvZRfKLL9RjLXvwaiUaX7s3GjYix5r2i0mFvWK-GhYmo2rhcxsxPS/exec'
-    const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML = "Message sent successfully"
-            setTimeout(function(){
-                msg.innerHTML = ""
-            }, 5000)
-            form.reset()
-        })
-        .catch(error => console.error('Error!', error.message))
-    })
-</script>
+			<script>
+				const form = document.getElementsByClassName('forms')[0]; // Select the first form element
+		        const msg=document.getElementById("msg")
+		
+			form.addEventListener('submit', function(event) {
+				// Simulate form submission delay
+				setTimeout(function() {
+					msg.innerHTML = "Form Submitted Successfully";
+					form.reset(); // Reset the form after submission
+				}, 500);
+			});
+			  </script>
 
 	</body>
 </html>
